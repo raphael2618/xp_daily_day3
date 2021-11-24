@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+{% for gif in gifs %}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{gif.url}}" class="img-fluid rounded-start" alt="{{gif.title}}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{gif.title}}</h5>
+        <p class="card-text"><small class="text-muted">{{gif.created_at}}</small></p>
+      <a href="{% url 'single_gif' gif.id %}" class="btn btn-primary">view gif</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
